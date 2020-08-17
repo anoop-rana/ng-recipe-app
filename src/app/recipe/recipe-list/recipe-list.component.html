@@ -1,4 +1,19 @@
 <div>
-    <h3>recipe-list works!</h3>
+    <h3>Recipe Menu</h3>
 </div>
+
+<div class="row" *ngFor="let recipe of recipes">
+    <div class="col-xs-12">
+        <a href="#" class="list-group-item clearfix">
+            <div class="pull-left" style="max-width: 70%;">
+                <h4 class="list-group-item-heading">{{recipe.name}}</h4>
+                <p class="list-group-item-text">{{recipe.description}}</p>
+            </div>
+            <span class="pull-right">
+                <img class="card-img-top" style="max-height: 100px;" [src]="recipe.imgPath" alt="{{recipe.name}}">
+            </span>
+        </a>
+    </div>
+</div>
+
 <recipe-item></recipe-item>
