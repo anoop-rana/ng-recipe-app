@@ -37,6 +37,9 @@ export class RecipeListComponent implements OnInit {
         ImagePath.raspberries
       ),
     ];
+
+    //by default 1st recipe selected
+    this.recipeClicked.emit(this.recipes[0]);
   }
 
   onRecipeClick(recipe: Recipe) {
