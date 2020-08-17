@@ -1,3 +1,18 @@
-<div>
-    <h4>recipe item page</h4>
+<div class="row">
+  <div class="col-xs-12">
+    <a href="#" class="list-group-item clearfix" (click)="onRecipeSelected()">
+      <div class="pull-left" style="max-width: 70%;">
+        <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
+        <p class="list-group-item-text">{{ recipe.description }}</p>
+      </div>
+      <span class="pull-right">
+        <img
+          class="card-img-top"
+          style="max-height: 100px;"
+          [src]="recipe.imgPath"
+          alt="{{ recipe.name }}"
+        />
+      </span>
+    </a>
+  </div>
 </div>
