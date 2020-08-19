@@ -1,7 +1,14 @@
 <div class="row">
-  <h2>Welcome to Recipe Book</h2>
   <div class="col-xs-6">
-    <recipe-list (recipeClicked)="recipeSelected = $event"></recipe-list>
+    <h2>Welcome to Recipe Book</h2>
+  </div>
+  <div class="col-xs-6">
+    <button class="btn btn-success pull-right" type="submit">Add Recipe</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-6">
+    <recipe-list></recipe-list>
   </div>
   <div class="col-xs-6">
     <recipe-details [recipeSelected]="recipeSelected"></recipe-details>

@@ -2,8 +2,4 @@
   <h3>Recipe Menu</h3>
 </div>
 
-<recipe-item
-  *ngFor="let recipeEl of recipes"
-  [recipe]="recipeEl"
-  (recipeSelected)="onRecipeClick(recipeEl)"
-></recipe-item>
+<recipe-item *ngFor="let recipeEl of recipes" [recipe]="recipeEl"></recipe-item>

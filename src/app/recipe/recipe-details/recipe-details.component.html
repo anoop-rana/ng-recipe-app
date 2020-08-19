@@ -7,30 +7,57 @@
     </div>
 
     <div class="row list-group-item">
-      <div class="col-xs-6">
-        <ul>
-          <h4>{{ recipeSelected.name }}</h4>
-          <li>{{ recipeSelected.description }}</li>
-          <li>Ingredients</li>
-          <div class="btn-group" recipeDropDown>
-            <button type="button" class="btn btn-primary dropdown-toggle">
-              Manage Recipe<span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-            </ul>
-          </div>
-        </ul>
+      <div class="row">
+        <div class="col-xs-12">
+          <img
+            class="card-img-top"
+            style="max-height: 400px;"
+            [src]="recipeSelected.imgPath"
+            alt="{{ recipeSelected.name }}"
+          />
+        </div>
       </div>
-      <div class="col-xs-6">
-        <img
-          class="card-img-top"
-          style="max-height: 200px;"
-          [src]="recipeSelected.imgPath"
-          alt="{{ recipeSelected.name }}"
-        />
+      <hr />
+      <div class="row">
+        <div class="col-xs-12 container">
+          <ul>
+            <div class="row">
+              <div class="col-xs-6">
+                <h2>{{ recipeSelected.name.toUpperCase() }}</h2>
+              </div>
+              <div class="col-xs-6">
+                <div class="btn-group pull-right" recipeDropDown>
+                  <button type="button" class="btn btn-primary dropdown-toggle">
+                    Manage Recipe<span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Edit Recipe</a></li>
+                    <li><a href="#">Delete Recipe</a></li>
+                    <li>
+                      <a href="#" (click)="onAddToShoppingList()"
+                        >Add To Shopping</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <li>{{ recipeSelected.description }}</li>
+            <li><h4>Ingredients</h4></li>
+            <div>
+              <ul class="list-group">
+                <a
+                  class="list-group-item"
+                  style="cursor: pointer;"
+                  *ngFor="let ingredient of recipeSelected.ingredients"
+                >
+                  {{ ingredient.name }} ({{ ingredient.amount }})
+                </a>
+              </ul>
+            </div>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
