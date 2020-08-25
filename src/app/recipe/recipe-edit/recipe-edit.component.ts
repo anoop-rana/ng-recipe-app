@@ -39,6 +39,7 @@ export class RecipeEditComponent implements OnInit {
 
     this.recipe = new Recipe(nameVal, descriptionVal, imgPathVal, []);
     this.recipeService.addOrUpdateRecipe(this.recipe);
+    this.router.navigate(['recipes']);
   }
 
   onResetRecipe() {
