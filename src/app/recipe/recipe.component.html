@@ -3,7 +3,13 @@
     <h2>Welcome to Recipe Book</h2>
   </div>
   <div class="col-xs-6">
-    <button class="btn btn-success pull-right" type="submit">Add Recipe</button>
+    <button
+      class="btn btn-success pull-right"
+      (click)="addRecipe()"
+      type="submit"
+    >
+      Add Recipe
+    </button>
   </div>
 </div>
 <div class="row">
@@ -11,6 +17,6 @@
     <recipe-list></recipe-list>
   </div>
   <div class="col-xs-6">
-    <recipe-details [recipeSelected]="recipeSelected"></recipe-details>
+    <router-outlet></router-outlet>
   </div>
 </div>

@@ -15,7 +15,8 @@ export class RecipeListComponent implements OnInit {
 
   ngOnInit(): void {
     this.recipes = this.recipeService.getRecipes();
-    //by default 1st recipe selected
-    this.recipeService.recipeSelected.emit(this.recipes[0]);
+    this.recipeService.recipeAdded.subscribe((recipeCol: Recipe[]) => {
+      this.recipes = recipeCol;
+    });
   }
 }

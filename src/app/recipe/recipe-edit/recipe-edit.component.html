@@ -1,0 +1,71 @@
+<div class="container-fluid">
+  <h3>Add Recipe</h3>
+</div>
+<div class="container-fluid">
+  <div>
+    <form>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="name">Recipe</label>
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            value="{{ isEditableRecipe ? '' : recipe.name }}"
+            #name
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="description">Description</label>
+          <textarea
+            id="description"
+            class="form-control"
+            rows="5"
+            value="{{ isEditableRecipe ? '' : recipe.description }}"
+            #description
+          ></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="imgPath">Image URL</label>
+          <input
+            type="text"
+            id="imgPath"
+            class="form-control"
+            value="{{ isEditableRecipe ? '' : recipe.imgPath }}"
+            #imgPath
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <button
+            class="btn btn-success col-xs-4"
+            type="submit"
+            (click)="onAddOrUpdateRecipe()"
+          >
+            {{ isEditableRecipe ? "Add" : "Update" }}
+          </button>
+          <button
+            class="btn btn-primary col-xs-4 center"
+            type="submit"
+            (click)="onResetRecipe()"
+          >
+            Reset
+          </button>
+          <button
+            class="btn btn-danger col-xs-4 pull-right"
+            type="submit"
+            (click)="onCancelRecipe()"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

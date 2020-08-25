@@ -17,4 +17,36 @@ export class Recipe {
     this.imgPath = imgPath;
     this.ingredients = ingredients;
   }
+
+  set setName(value: String) {
+    this.name = value;
+  }
+
+  get getName(): String {
+    return this.name;
+  }
+
+  set setDescription(value: String) {
+    this.description = value;
+  }
+
+  get getDescription(): String {
+    return this.description;
+  }
+
+  set setImgPath(value: String) {
+    this.imgPath = value;
+  }
+
+  get getImgPath(): String {
+    return this.imgPath;
+  }
+
+  set setIngredients(value: Ingredient[]) {
+    this.ingredients = value;
+  }
+
+  get getIngredients(): Ingredient[] {
+    return this.ingredients;
+  }
 }

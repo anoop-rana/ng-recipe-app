@@ -26,17 +26,19 @@
                 <h2>{{ recipeSelected.name.toUpperCase() }}</h2>
               </div>
               <div class="col-xs-6">
-                <div class="btn-group pull-right" recipeDropDown>
+                <div
+                  class="btn-group pull-right"
+                  style="cursor: pointer;"
+                  recipeDropDown
+                >
                   <button type="button" class="btn btn-primary dropdown-toggle">
                     Manage Recipe<span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Edit Recipe</a></li>
+                    <li><a (click)="onEditRecipe()">Edit Recipe</a></li>
                     <li><a href="#">Delete Recipe</a></li>
                     <li>
-                      <a href="#" (click)="onAddToShoppingList()"
-                        >Add To Shopping</a
-                      >
+                      <a (click)="onAddToShoppingList()">Add To Shopping</a>
                     </li>
                   </ul>
                 </div>

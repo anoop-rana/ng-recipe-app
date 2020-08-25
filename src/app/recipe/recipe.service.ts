@@ -7,6 +7,7 @@ import { ShoppingListService } from '../shopping-list/shopping-list.service';
 @Injectable()
 export class RecipeService {
   recipeSelected = new EventEmitter<Recipe>();
+  recipeAdded = new EventEmitter<Recipe[]>();
 
   private recipes: Recipe[] = [
     new Recipe('Pasta', ImagePath.PASTA_desc, ImagePath.PASTA, [
@@ -47,7 +48,28 @@ export class RecipeService {
     return this.recipes.slice();
   }
 
+  addOrUpdateRecipe(recipe: Recipe) {
+    const i = this.recipes.findIndex((r) => {
+      r.name === recipe.name;
+    });
+    if (i == -1) {
+      this.recipes.push(recipe);
+    } else {
+      const oldRecipe = this.recipes[i];
+      oldRecipe.setName = recipe.name;
+      oldRecipe.setDescription = recipe.description;
+      oldRecipe.setImgPath = recipe.imgPath;
+      //oldRecipe.setIngredients = recipe.ingredients;
+    }
+
+    this.recipeAdded.emit(this.recipes.slice());
+  }
+
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.shoppingListService.addIngredients(ingredients);
+  }
+
+  getRecipeByIndex(index: Number): Recipe {
+    return this.recipes.slice()[+index];
   }
 }
