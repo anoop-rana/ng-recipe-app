@@ -34,8 +34,8 @@ export class RecipeEditComponent implements OnInit {
 
   onAddOrUpdateRecipe() {
     const nameVal = this.recipeNameRef.nativeElement.value;
-    const descriptionVal = this.recipeNameRef.nativeElement.value;
-    const imgPathVal = this.recipeNameRef.nativeElement.value;
+    const descriptionVal = this.descriptionRef.nativeElement.value;
+    const imgPathVal = this.imgPathRef.nativeElement.value;
 
     this.recipe = new Recipe(nameVal, descriptionVal, imgPathVal, []);
     this.recipeService.addOrUpdateRecipe(this.recipe);
